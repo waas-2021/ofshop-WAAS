@@ -34,7 +34,7 @@
                         </div>
                     </td>
                     <td>${{item.subtotal}}</td>
-                    <td>${{ item.quantity * item.product.price}} </td>
+                    <td >${{ item.quantity * item.product.price | number: '1.2'}} </td>
                     <td> <button type="button" class="btn btn-warning" (click)="eliminarProducto(i)" id="eliminar"> <i class="bi bi-trash"></i> </button> </td>
                 </tr>
             </tbody>

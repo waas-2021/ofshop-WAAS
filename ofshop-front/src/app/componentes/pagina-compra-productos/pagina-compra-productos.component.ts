@@ -56,6 +56,7 @@ export class PaginaCompraProductosComponent implements OnInit {
       //console.log(this.carrito[i]);
     }
     this.registro.total = this.registro.subtotal + this.registro.envio;
+    this.registro.total = Number(this.registro.total.toFixed(2));
     console.log("total: "+String(this.registro.total));
     this.pagoPaypal(this.registro.total, true);
   }
