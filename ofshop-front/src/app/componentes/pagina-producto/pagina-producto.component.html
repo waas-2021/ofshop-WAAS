@@ -1,0 +1,30 @@
+<div *ngIf="registro; else elseBlock" class="card card-product h-50" style="background-color: white; padding: 25px; margin-top: 2rem; margin-bottom: 2rem; border: 3px solid black; width: 30rem; height: 35rem!important; margin-left: auto; margin-right: auto;">
+    <a [href]="registro.product.image_front_small_url" target="_blank">
+        <img style="width: 20rem!important; height: 20rem;" [src]="registro.product.image_front_small_url" class="card-img-top" alt="{{registro.product.product_name}}"/>
+    </a>
+    <div class="card-body">
+        <h5 class="card-title">{{registro.product.product_name}} {{registro.product.quantity}}</h5>
+        <p class="card-text">
+            {{registro.product.brands}}
+            <br>
+            {{registro.price_f}}
+        </p>
+        <a type="submit" class="btn btn-success" (click)="agregarACarrito()">
+            <i class="bi bi-cart-plus-fill"></i>
+            Agregar al carrito
+        </a>
+    </div>
+</div>
+
+<ng-template #elseBlock>
+    <div *ngIf="carga;">
+        <h1>
+            <i class="bi bi-file-earmark-excel"></i>
+            Ocurrio un error interno
+        </h1>
+        <a routerLink="/" class="btn btn-secondary btn-lg" role="button">
+            <i class="bi bi-house-door-fill"></i>
+            Ir al Inicio
+        </a>
+    </div>
+</ng-template>
