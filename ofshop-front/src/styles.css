@@ -1,0 +1,26 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+body {
+    color: #7FB3D5;
+    background-color: #34495E;
+}
+
+.card-product {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    padding: 10px;
+    height: 33rem;
+}
+.input-group {
+    margin-left: auto;
+    margin-right: auto;
+    width: 80vw;
+}
+
+.card-product img {
+    height: 20rem;
+}
+
+div .card-body {
+    height: inherit;
+}
