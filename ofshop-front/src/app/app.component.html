@@ -1,0 +1,61 @@
+<nav class="navbar navbar-dark bg-dark" *ngIf="loggedIn()">
+  <!-- Navbar content -->
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/">Menú</a>
+    <a class="navbar-brand" routerLink='/carrito'>
+      <i class="bi bi-cart4" id="cart-icon">
+        <span class="position absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="badge" *ngIf="carro()">
+        {{numProductos}}
+        <!--<span class="visually-hidden">Numero de articulos</span>-->
+        </span> 
+      </i>
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/"><i class="bi bi-house-door-fill"></i> Inicio</a>
+        </li>
+        <!--<li class="nav-item">
+          <a class="nav-link" routerLink="/busqueda"><i class="bi bi-search"></i> Búsqueda</a>
+        </li>-->
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/contacto"><i class="bi bi-envelope"></i> Contáctanos</a>
+        </li>
+        <!--li class="nav-item">
+          <a class="nav-link" routerLink="/carrito"><i class="bi bi-cart-check-fill"></i> Carrito</a>
+        </li-->
+        <li class="nav-item">
+          <a class="nav-link" style="cursor:pointer;" (click)="logout()"><i class="bi bi-box-arrow-right" s></i> Logout</a>
+        </li>
+      </ul>
+    </div>
+  </div> 
+  <!-- Navbar content -->
+</nav>
+<div [ngStyle]="{'text-align' : 'center'}">
+  <div>
+    <router-outlet></router-outlet>
+  </div>
+  <!-- footer part -->
+</div>
+<div *ngIf="loggedIn()">
+  <footer class="bg-dark" >
+    <div>
+      <ul>
+          <li class="footer-items">
+           <a href="mailto:softechnologiesadvanced@gmail.com" class="footer-link">Envíanos un correo &nbsp;<i class="far fa-envelope"></i></a>
+          </li>
+          <li class="footer-items">
+            <a class="footer-link" routerLink="/contacto">Contáctanos&nbsp;&nbsp;<i class="fas fa-user-plus"></i></a>
+          </li>
+        </ul>
+    </div>
+    <div class="copy">
+      <p>Todos los derechos reservados por Ofshop &copy; 2021-2022</p>
+    </div>
+  </footer>
+</div>
