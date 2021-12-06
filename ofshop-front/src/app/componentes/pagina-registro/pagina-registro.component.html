@@ -1,0 +1,150 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card text-center registro-box" style="width: 18rem;">
+                <div class="card-body">
+                    <i style="color: white; font-size: 100px;" class="bi bi-person-plus"></i>
+                    <h1>Registrarse</h1>
+                </div>
+<!--                <form [formGroup]="registroForm" (ngSubmit)="registro()">
+                    <div class="mb-3">
+                        <label for="inputNombreUsuario" class="form-label">Nombre</label>
+                        <input formControlName="nombreUsuario" type="text" class="form-control" id="inputNombreUsuario" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="inputApellidoUsuario" class="form-label">Apellido</label>
+                        <input formControlName="apellidoUsuario" type="text" class="form-control" id="inputApellidoUsuario" required>
+                    </div>
+                    <div class="mb-3">-->
+                        <!--<label for="inputAliasUsuario" class="form-label">Nombre de usuario / Alias</label>
+                        <input formControlName="aliasUsuario" type="text" class="form-control" id="inputAliasUsuario" required>-->
+<!--                        <label for="inputAliasUsuario" class="form-label">Nombre de usuario / Alias</label>
+                        <div class="input-group mb-3 has-validation">
+                            <span class="input-group-text" id="asterisco">@</span>
+                            <input formControlName="aliasUsuario" type="text" class="form-control" id="inputAliasUsuario" required> -->
+                            <!--<div class="invalid-feedback">
+                                Please choose a username.
+                            </div>-->
+<!--                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="inputCorreo" class="form-label">Correo electrónico</label>
+                        <input formControlName="correo" type="email" class="form-control" id="inputCorreo" aria-describedby="emailHelp" required [email]="true">
+                    </div>
+                    <div class="mb-3" >
+                        <label for="inputContrasena" class="form-label">Contraseña</label>
+                        <input formControlName="contra" type="password" class="form-control" id="inputContrasena" required  />
+                        <div *ngIf=" !registroForm.value.contra.valid" class="invalid-feedback">
+                            Confirm Password is required-->
+                           <!--<div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>-->
+<!--                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="inputContraValidacion" class="form-label">Vuelva a ingresar su contraseña</label>
+                        <input formControlName="contraValidacion" type="password" class="form-control" id="inputContrasenaValidacion" required />
+                        <div *ngIf=" !registroForm.value.contra.valid" class="invalid-feedback">
+                            Confirm Password is required-->
+                           <!--<div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>-->
+<!--                           <div *ngIf="!compararContra()">Passwords must match</div>
+                        </div>
+                        
+                    </div>-->
+                    <!--<div class="mb-3">
+                        <div>
+                            <label for="inputTipoUsuario" class="form-label">Tipo de usuario</label>
+                            <input formControlName="tipoUsuario" type="text" class="form-control" list="listaOpciones" id="inputTipoUsuario" placeholder="Seleccione una opción." required>
+                            <datalist id="listaOpciones">
+                                <option value="Cliente">
+                                <option value="Administrador">
+                            </datalist>
+                        </div>
+                    </div>-->
+                    <!--<div class="mb-3">
+                        <div class="form-check">
+                          <input formControlName="terminosCheck" type="checkbox" class="form-check-input"  id="disabledFieldsetCheck" [disabled]="" required>
+                          <label class="form-check-label" for="disabledFieldsetCheck" >
+                            Acepto términos y condiciones
+                          </label>
+                        </div>
+                    </div>-->
+<!--                    <button type="submit" class="btn" [disabled]="!registroForm.valid">Registrarse</button>
+                </form>-->
+
+                <form (ngSubmit) = "registro()" #myform="ngForm"  >
+                    <div class="row g-3" id="datosNombre" >
+                        <div class="col-6">
+                          <label for="formControlNombres" class="form-label">Nombre(s)</label>
+                          <!--<input formControlName="nombres" type="text" class="form-control" id="formControlNombres" required >-->
+                          <input type="text" #c1="ngModel" [(ngModel)]="registroForm.value.nombreUsuario" name="c1" minlength="2" class="form-control"  untouched="true" required  [ngClass]="{'is-valid': !c1.invalid, 'is-invalid': c1.invalid}" aria-label="Nombre" placeholder="Nombres" />
+                          <div class="invalid-feedback" *ngIf="!myform.controls.c1.untouched && !myform.controls.c1.valid " >
+                            Campo obligatorio
+                          </div>
+                        </div>
+                        <div class="col-6">
+                            <label for="formControlApellidos" class="form-label">Apellido(s)</label>
+                            <!--<input formControlName="apellidos" type="text" class="form-control" id="formControlApellidos" required>-->
+                            <input type="text" #c2="ngModel" [(ngModel)]="registroForm.value.apellidoUsuario" name="c2" minlength="2" class="form-control"  untouched="true" required  [ngClass]="{'is-valid': !c2.invalid, 'is-invalid': c2.invalid}" aria-label="Apellido" placeholder="Apellidos"/>
+                            <div class="invalid-feedback" *ngIf="!myform.controls.c2.untouched && !myform.controls.c2.valid " >
+                            Campo obligatorio
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <!--<label for="inputAliasUsuario" class="form-label">Alias</label>
+                        <input formControlName="aliasUsuario" type="text" class="form-control" id="inputAliasUsuario" required>-->
+                        <label for="inputAliasUsuario" class="form-label">Nombre de usuario / Alias</label>
+                        <div class="input-group mb-3 has-validation">
+                            <span class="input-group-text" id="asterisco">@</span>
+                            <!--<input  type="text" formControlName="aliasUsuario" class="form-control" id="inputAliasUsuario" required>-->
+                            <input  type="text"  #c3="ngModel" [(ngModel)]="registroForm.value.aliasUsuario" name="c3" minlength="2" class="form-control"  untouched="true" required  [ngClass]="{'is-valid': !c3.invalid, 'is-invalid': c3.invalid}" aria-label="Apellido" placeholder="Nombre público dentro del sitio.">
+                            <div class="invalid-feedback" *ngIf="!myform.controls.c3.untouched && !myform.controls.c3.valid " > <!-- *ngIf="registroForm.value.aliasUsuario.errors.required">-->
+                                Campo obligatorio.
+                            </div>
+                            <div class="invalid-feedback" *ngIf="!usuarioDisponible" > <!-- *ngIf="registroForm.value.aliasUsuario.errors.required">-->
+                               Elija otro nombre de usuario.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="formControlCorreo" class="form-label">Correo electrónico</label>
+                        <!--<input formControlName="correo" type="email" class="form-control" id="formControlCorreo" placeholder="name@example.com" required>-->
+                        <input type="email" #c4="ngModel" [(ngModel)]="registroForm.value.correo" name="c4" minlength="2" class="form-control"  untouched="true" required [ngClass]="{'is-valid': !c4.invalid, 'is-invalid': c4.invalid}" aria-label="Correo" placeholder="Correo" [email]="true"/>
+                        <div class="invalid-feedback" *ngIf="!myform.controls.c4.untouched && !myform.controls.c4.valid ">
+                            Campo obligatorio
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="inputContrasena" class="form-label">Contraseña</label>
+                        <!--<input formControlName="contra" type="password" class="form-control" id="inputContrasena" required  />-->
+                        <input type="password" #c5="ngModel" [(ngModel)]="registroForm.value.contra" name="c5" minlength="4" maxlength="8" class="form-control"  untouched="true" required  [ngClass]="{'is-valid': !c5.invalid , 'is-invalid': c5.invalid}" aria-label="Contraseña" />
+                        <div class="invalid-feedback" *ngIf="!myform.controls.c5.untouched && !myform.controls.c5.valid " >
+                            Campo obligatorio
+                           <!--<div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>-->
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="inputContraValidacion" class="form-label">Vuelva a ingresar su contraseña</label>
+                        <!--<input formControlName="contraValidacion" type="password" class="form-control" id="inputContrasenaValidacion" required />-->
+                        <input type="password" #c6="ngModel" [(ngModel)]="registroForm.value.contraValidacion" name="c6" minlength="4" maxlength="8" class="form-control"  untouched="true" required [ngClass]="{'is-valid': !c6.invalid, 'is-invalid': c6.invalid}" aria-label="ContraseñaConfirmacion" />
+                        <div class="invalid-feedback" *ngIf="!myform.controls.c6.untouched && !myform.controls.c6.valid " >
+                            Campo obligatorio
+                           <!--<div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>-->
+                           <!--<div *ngIf="!compararContra()">Passwords must match</div>-->
+                        </div>
+                        <div class="invalid-feedback" *ngIf="!siCoincide" >
+                            La contraseña no coincide.
+                           <!--<div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>-->
+                           <!--<div *ngIf="!compararContra()">Passwords must match</div>-->
+                        </div>
+                    </div>
+                    <a class="mb-3" [routerLink]="'/login'" id="loginLink">
+                        ¿Ya tienes una cuenta? Loguéate.
+                    </a>
+                    <br>
+                    <button type="submit" class="btn btn-primary" [disabled]="!myform.valid" >Registrarse</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>

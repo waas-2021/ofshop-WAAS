@@ -1,0 +1,49 @@
+.card {
+    width: 30vw!important;
+    border: none;
+    padding: 40px;
+    position: relative;
+    margin: auto;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    line-height: normal;
+    transform: translate(-68%,20%);
+    background: hsla(205, 46%, 30%, 1);
+    background: linear-gradient(90deg, hsla(205, 46%, 30%, 1) 0%, hsla(260, 29%, 36%, 1) 100% );
+}
+
+.registro-box {
+    margin-left: 42vw;
+    margin-top: -5rem;
+    margin-bottom: 15rem;
+}
+
+.card h1, h6{
+    color: #fff;
+}
+
+.mb-3{
+    margin: 5px;
+    text-align: start;
+    color: #fff;
+    width:auto;
+}
+
+label{
+    margin: 5px;
+}
+
+.asterisco{
+    width: min-content;
+}
+
+.btn{
+    color: white;
+    margin: 4px;
+    padding: 10px 24px;
+    align-items: center;
+    font-size: 110%;
+    background-color: black;
+    width: 15vw;
+}

@@ -1,0 +1,52 @@
+<div class="container" style="margin-left: auto; margin-right: auto; text-align: center;">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="text-center">
+                    <h1>Contacto</h1>   
+                    <h6>Llene los campos para enviar una sugerencia, reporte o solicitar una aclaración.</h6>
+                </div>
+               <!--<form [formGroup]="contactoForm" (ngSubmit)="enviarMensaje()"> -->
+                <form (ngSubmit) = "enviarMensaje()" #myform="ngForm"  >
+                    <div class="row g-3" id="datosNombre" >
+                        <div class="col-6">
+                          <label for="formControlNombres" class="form-label">Nombre(s)</label>
+                          <!--<input formControlName="nombres" type="text" class="form-control" id="formControlNombres" required >-->
+                          <input type="text" #c1="ngModel" [(ngModel)]="contactoForm.value.nombres" name="c1" minlength="2" class="form-control"   untouched="true" required [ngClass]="{'is-valid': !c1.invalid, 'is-invalid': c1.invalid}" aria-label="Nombre" placeholder="Nombres" />
+                          <div class="invalid-feedback" *ngIf="!myform.controls.c1.untouched && !myform.controls.c1.valid " >
+                            Campo obligatorio
+                          </div>
+                        </div>
+                        <div class="col-6">
+                            <label for="formControlApellidos" class="form-label">Apellido(s)</label>
+                            <!--<input formControlName="apellidos" type="text" class="form-control" id="formControlApellidos" required>-->
+                            <input type="text" #c2="ngModel" [(ngModel)]="contactoForm.value.apellidos" name="c2" minlength="2" class="form-control"   untouched="true" required [ngClass]="{'is-valid': !c2.invalid, 'is-invalid': c2.invalid}" aria-label="Apellido" placeholder="Apellidos"/>
+                            <div class="invalid-feedback" *ngIf="!myform.controls.c2.untouched && !myform.controls.c2.valid " >
+                            Campo obligatorio
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="formControlCorreo" class="form-label">Correo electrónico</label>
+                        <!--<input formControlName="correo" type="email" class="form-control" id="formControlCorreo" placeholder="name@example.com" required>-->
+                        <input type="email" #c3="ngModel" [(ngModel)]="contactoForm.value.correo" name="c3" minlength="2" class="form-control"   untouched="true" required [ngClass]="{'is-valid': !c3.invalid, 'is-invalid': c3.invalid}" aria-label="Correo" placeholder="Correo" [email]="true"/>
+                        <div class="invalid-feedback" *ngIf="!myform.controls.c3.untouched && !myform.controls.c3.valid " >
+                            Campo obligatorio
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="formControlMensaje" class="form-label">Mensaje:</label>
+                        <!--<textarea formControlName="mensaje"  class="form-control" id="formControlMensaje" rows="5" placeholder="Escriba su mensaje aquí." required></textarea>-->
+                        <textarea type="text" #c4="ngModel" [(ngModel)]="contactoForm.value.mensaje" name="c4" minlength="2" class="form-control" rows="5"   untouched="true" required [ngClass]="{'is-valid': !c4.invalid, 'is-invalid': c4.invalid}" aria-label="Mensaje" placeholder="Escriba su mensaje aquí."></textarea>
+                        <div class="invalid-feedback" *ngIf="!myform.controls.c4.untouched && !myform.controls.c4.valid " >
+                            Campo obligatorio
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary"  [disabled]="!myform.valid" >Enviar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

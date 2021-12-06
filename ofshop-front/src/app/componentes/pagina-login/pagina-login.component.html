@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card text-center login-box" style="width: 18rem;">
+                <div class="card-body">
+                    <i style="color: white; font-size: 100px;" class="far fa-user-circle"></i>
+                    <h1>Login</h1>
+                </div>
+                <form [formGroup]="loginForm" (ngSubmit)="login()">
+                    <div class="mb-3">
+                        <label for="inputCorreo" class="form-label">Correo electrónico</label>
+                        <input formControlName="correo" type="email" class="form-control" id="inputCorreo" aria-describedby="emailHelp" required [email]="true">
+                    </div>
+                    <div class="mb-3">
+                        <label for="inputContrasena" class="form-label">Contraseña</label>
+                        <input formControlName="contrasena" type="password" class="form-control" id="inputContrasena" required>
+                    </div>
+                    <a class="mb-3" [routerLink]="'/registro'" id="loginLink">
+                        ¿No tienes una cuenta? Regístrate.
+                    </a>
+                    <br>
+                    <button type="submit" class="btn" [disabled]="!loginForm.valid">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
